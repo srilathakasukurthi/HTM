@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Electricity Bill Calculator</title>
+        <style>
+            body {
+                font-family:Arial,sans-serial;
+        background-color:blue;
+            }
+            .container {
+                width:420px;
+                margin:50px auto;
+                background:pink;
+                border-radius:6px;
+            }
+            h2 {
+                text-align:center;
+            }
+            input {
+               width:100px;
+               padding:8px;
+               margin:6px 0;
+            }
+            button {
+                width:100%;
+                padding:10px;
+                background-color:lightgreen;
+                color:blue;
+                border:none;
+                cursor:pointer;
+            }
+            .bill {
+                margin-top:15px;
+                background:green;
+                padding:10px;
+                font-weight:bold;
+            }
+            </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 style="text-align:center;">APCDCL</h1>
+            <h2>Electricity Bill Calculator</h2>
+            <label>Units Consumed:</label>
+            <input type="text" id="name">
+
+            <label>Units consumer:</label>
+            <input tyoe="number" id="units">
+
+            <button onclick="calculatebill()">calculatabill</button>
+            <div class="bill" id="bill"></div>
+        </div>
+        <script>
+            function  calculatebill() {
+                var name = document.getElementById("name").value
+               var units = Number(document.getElementById("units").value)
+
+               if (name === "" || units <=0) {
+                alerty("Please enter valid details");
+                retunr;
+               }
+               var amount = 0;
+
+               if (units<= 100) {
+                amount = units * 1.5;
+               } else if (units <= 200) {
+                amount = (100 * 1.5)+ ((units - 100) * 2.5);
+               } else {
+                amount = (100 * 1.5) + (100 * 2.5) + ((units - 200) * 4);               
+               }
+               document.getElementByIb("bill").innerHML= "Consumer:" + name + "<br>" +
+               "Units:" + units + "<br>" + "Total Bill Amount: ₹" + amount;
+            }
+        </script>
+        </body>
+</html>
